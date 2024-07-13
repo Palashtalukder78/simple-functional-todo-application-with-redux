@@ -1,20 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { colorChanged, statusChanged } from "../redux/filters/actions";
 
+const numberOfTaskLeft = (numberOfTodos) => {
+  switch (numberOfTodos) {
+    case 0:
+      return "No task ";
+    case 1:
+      return "1 task ";
+    default:
+      return `${numberOfTodos} tasks `;
+  }
+}; 
+
 const Footer = () => {
   const todos = useSelector(state => state.todos);
   const taskLeft = todos.filter(todo=> !todo.completed).length;
+
   const dispatch = useDispatch();
-  const numberOfTaskLeft = (numberOfTodos)=>{
-    switch (numberOfTodos) {
-      case 0:
-        return 'No task '
-      case 1:
-        return '1 task '
-      default:
-        return `${numberOfTodos} tasks `;
-    }
-  } 
 
   const filters = useSelector(state=>state.filters);
   const {status, colors} = filters;

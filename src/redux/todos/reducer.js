@@ -9,12 +9,14 @@ const todoMaxId = (todos)=>{
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADDED:
-            return {
-                ...state,
+            return [
+              ...state,
+              {
                 id: todoMaxId(state),
                 text: action.payload,
-                completed: false
-            }
+                completed: false,
+              },
+            ];
         case ALLCOMPLETED:
             return state.map(todo=>{
                 return {
