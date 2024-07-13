@@ -46,7 +46,7 @@ const reducer = (state = initialState, action) => {
                 }
             })
         case DELETED: 
-            return state.filter(todo =>todo.id === !todo.payload)
+            return state.filter(todo =>todo.id !== action.payload)
         default:
             return state
     }
