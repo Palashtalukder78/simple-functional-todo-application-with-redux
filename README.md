@@ -6,7 +6,7 @@ A simple and efficient todo application built with React and Redux.
 
 ## Features
 
-- Add, edit, and delete tasks
+- Add, status, filters, and delete tasks
 - Mark tasks as completed
 - Filter tasks (base on status(completed,incompleted,and All) and colors)
 
