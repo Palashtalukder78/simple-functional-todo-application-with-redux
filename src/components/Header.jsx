@@ -4,11 +4,10 @@ import doubleTickImg from '../assets/images/double-tick.png';
 import { useDispatch } from 'react-redux';
 import { added, allCompleted, clearCompleted } from '../redux/todos/actions';
 import { useState } from 'react';
+import addTodo from '../redux/todos/thunk/addTodo';
 const Header = () => {
   const dispatch = useDispatch();
   const [todoText, setTodoText] = useState('');
-
-  
 
   const inputHandler = (e)=>{
     setTodoText(e.target.value);
@@ -18,7 +17,7 @@ const Header = () => {
     if(todoText === ''){
       return alert('Input field must not be empty!')
     }
-    dispatch(added(todoText));
+    dispatch(addTodo(todoText));
     setTodoText('')
   }
 
