@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLED } from "./actionTypes";
+import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, LOADED, TOGGLED } from "./actionTypes";
 import { initialState } from "./initialState";
 
 const todoMaxId = (todos)=>{
@@ -8,6 +8,9 @@ const todoMaxId = (todos)=>{
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case LOADED:
+            return action.payload;
+            
         case ADDED:
             return [
               ...state,

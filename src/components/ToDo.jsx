@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import cancelImg from "../assets/images/cancel.png";
-import { colorSelected, deleted, toggled } from "../redux/todos/actions";
+import { colorSelected, deleted } from "../redux/todos/actions";
+import updateStatus from "../redux/todos/thunk/updateStatus";
 
 const ToDo = ({ todo }) => {
   const dispatch = useDispatch();
   const { id, text, completed, color } = todo;
 
   const handleStatusChanged = (todoId) => {
-    dispatch(toggled(todoId));
+    dispatch(updateStatus(todoId, completed));
   };
   const handleColorSelected = (todoId, color) => {
     dispatch(colorSelected(todoId, color));
